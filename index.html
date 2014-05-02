@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Clicky Doge</title>
+		<script>
+		var doges = 0
+		var manualadd = 1
+		var dps = 0
+		var memes = 0
+		var vids = 0
+		var webs = 0
+		var fans = 0
+			myFunction()
+			function myFunction() {
+				setTimeout(function(){dpsadd()}, 1000)
+			}
+			
+			var dpsadd = function() {
+				document.title = "Clicky Doge (" + doges + ")"
+				doges = doges + dps
+				myFunction()
+				check()
+				display()
+			}
+			
+		var i = function(selection) {
+			if (selection === "manual") {
+				doges = doges + manualadd
+				check()
+				display()
+				document.title = "Clicky Doge (" + doges + ")"
+				document.getElementById("doges").innerHTML = "Doges: " + doges + "   Doges per second: " + dps
+			}
+			
+			if (selection === "meme") {
+			    check()
+				memes = memes + 1
+				dps = dps + 1
+				doges = doges - 100
+				display()
+			}
+			if (selection === "viral") {
+				check()
+				vids = vids + 1
+				dps = dps + 10
+				doges = doges - 1000
+				display()
+			}
+			if (selection === "web") {
+				check()
+				webs = webs + 1
+				dps = dps + 100
+				doges = doges - 10000
+				display()
+			}
+			if (selection === "fan") {
+				check()
+				fans = fans + 1
+				dps = dps + 1000
+				doges = doges - 100000
+				display()
+			}
+		}
+		var display = function() {
+			document.getElementById("doges").innerHTML = "Doges: " + doges + "   Doges per second: " + dps
+			document.getElementById("buys").innerHTML = "Memes: " + memes + "   Viral Vids: " + vids + "   Websites: " + webs + "   Fanbases: " + fans
+			check()
+		}
+		
+		var check = function() {
+		if (doges < 100) {
+		document.getElementById("meme").disabled = true
+		}
+		else {
+		document.getElementById("meme").disabled = false
+		}
+		
+		if (doges < 1000) {
+		document.getElementById("viral").disabled = true
+		}
+		else {
+		document.getElementById("viral").disabled = false
+		}
+		
+		if (doges < 10000) {
+		document.getElementById("web").disabled = true
+		}
+		else {
+		document.getElementById("web").disabled = false
+		}
+		
+		if (doges < 100000) {
+		document.getElementById("fan").disabled = true
+		}
+		else {
+		document.getElementById("fan").disabled = false
+		}
+		}
+		</script>
+	</head>
+	<body bgcolor="FF00FF" align="center">
+		<img src="images/doge2.jpg">	
+		<h2 id="doges">doges</h2> 
+		<input id="meme" value="Buy Meme(Cost:100)" type="button" style="width:150px; height:25px; font-size:75%" onclick=i("meme")>
+		<input id="viral" value="Buy Viral Video(Cost:1k)" type="button" style="width:150px; height:25px; font-size:75%" onclick=i("viral")>
+		<input id="web" value="Buy Website(Cost:10k)" type="button" style="width:150px; height:25px; font-size:75%" onclick=i("web")>
+		<input id="fan" value="Buy Fanbase(Cost:100k)" type="button" style="width:150px; height:25px; font-size:75%" onclick=i("fan")>	
+		<h3 id="buys">buys</h3>
+		<input value="Breed Doges" type="button" style="width:626px; height:60px; font-size:150%" onclick=i("manual")>
+	</body>
+	<script>
+		document.getElementById("doges").innerHTML = "Doges: " + doges + "   Doges per second: " + dps
+		loop = 1
+		check()
+	</script>
+</html>
